@@ -1,5 +1,8 @@
+import { Signin, Signup } from "./components";
+
 export const App = () => (
 	<>
-		<h1>Vite</h1>
+		<Signin/>
+		<Signup/>
 	</>
 );
