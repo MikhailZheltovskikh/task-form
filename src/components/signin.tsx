@@ -1,33 +1,15 @@
 import React from 'react';
 import { TextInput, Button } from '@mantine/core';
 import { useRef, useState } from 'react';
+import { formBtnsBox, formStyled, wrapperStyled } from './styled';
 
-export const Signin: React.FC = () => {
-	const wrapperStyled: React.CSSProperties = {
-		height: '100vh',
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center',
-	};
+interface SigninProps {
+	handleSubmit: () => void;
+	formRef: React.RefObject<HTMLFormElement>;
+}
 
-	const formStyled: React.CSSProperties = {
-		maxWidth: '500px',
-		width: '100%',
-	};
-
-	const formBtnsBox: React.CSSProperties = {
-		display: 'flex',
-		gap: '20px',
-	};
-
-	const formRef = useRef<HTMLFormElement | null>(null);
+export const Signin: React.FC<SigninProps> = ({ handleSubmit, formRef }) => {
 	const [inputs, setInputs] = useState<{ [key: string]: string }>({});
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		console.log('inputs:', inputs);
-		formRef.current?.reset();
-	};
 
 	const handelChenge = (e) => {
 		setInputs((prevState) => ({

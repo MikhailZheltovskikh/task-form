@@ -2,39 +2,18 @@ import React from 'react';
 import { TextInput, Button, Radio, RadioGroup, Text } from '@mantine/core';
 import { useRef, useState } from 'react';
 import { IconAt } from '@tabler/icons-react';
+import { formBtnsBox, formStyled, wrapperStyled } from './styled';
 
-export const Signup: React.FC = () => {
-	const wrapperStyled: React.CSSProperties = {
-		height: '100vh',
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center',
-	};
+interface SigninProps {
+	handleSubmit: () => void;
+	formRef: React.RefObject<HTMLFormElement>;
+}
 
-	const formStyled: React.CSSProperties = {
-		maxWidth: '500px',
-		width: '100%',
-	};
-
-	const formBtnsBox: React.CSSProperties = {
-		display: 'flex',
-		gap: '20px',
-	};
-
-	const formRef = useRef<HTMLFormElement | null>(null);
+export const Signup: React.FC<SigninProps> = ({ handleSubmit, formRef }) => {
 	const passwordRef = useRef<HTMLInputElement | null>(null);
 	const repeatPasswordRef = useRef<HTMLInputElement | null>(null);
 	const [inputs, setInputs] = useState<{ [key: string]: string }>({});
 	const [error, setError] = useState<string | null>(null);
-
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		console.log('inputs:', inputs);
-
-		formRef.current?.reset();
-		setInputs({});
-		setError(null);
-	};
 
 	const handelChenge = (e) => {
 		setInputs((prevState) => ({
