@@ -1,0 +1,49 @@
+body {
+	margin: 0;
+}
+
+*,
+::after,
+::before {
+	box-sizing: border-box;
+}
+
+.size-xs {
+	font-size: 12px;
+}
+
+.size-s {
+	font-size: 14px;
+}
+
+.size-m {
+	font-size: 16px;
+}
+
+.size-l {
+	font-size: 18px;
+}
+
+.size-xl {
+	font-size: 20px;
+}
+
+.border-radius-xs {
+	border-radius: 2px;
+}
+
+.border-radius-s {
+	border-radius: 4px;
+}
+
+.border-radius-m {
+	border-radius: 8px;
+}
+
+.border-radius-l {
+	border-radius: 16px;
+}
+
+.border-radius-xl {
+	border-radius: 32px;
+}
